@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+	* {
+		font-family: var(--font-sans);
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	html,
+	body,
+	#root {
+		height: 100%;
+	}
+
+	body {
+		margin: 0;
+		background: #0f1115;
+		color: #101828;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	button {
+		font: inherit;
+		cursor: pointer;
+	}
+
+	input {
+		font: inherit;
+	}
+}
+
+@keyframes pop-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+	60% {
+		transform: scale(1.08);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes sheet-up {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+.animate-pop-in {
+	animation: pop-in 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-up {
+	animation: fade-up 460ms ease both;
+}
+
+.animate-sheet-up {
+	animation: sheet-up 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hide scrollbars inside the phone screen for a native feel */
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
